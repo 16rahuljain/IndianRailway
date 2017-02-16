@@ -1,2 +1,10 @@
 #!/usr/bin/env python
-print "Hello"
+from flash import Flask
+app = Flask(__name__)
+@app.route('/')
+def index():
+  return 'Hello world'
+if __name__ == "__main__":
+  app.run()
+
+
