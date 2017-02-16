@@ -33,17 +33,21 @@ def processRequest(req):
     
     result = req.get("result")
     parameters = result.get("parameters")
-    inq_date = parameters.get("inq_date") 
+    inq_date = parameters.get("inq_date")
+    cln_inq_date = inq_date.replace('-','')
     train_num = parameters.get("train_num")
     
-    
+    link = "http://api.railwayapi.com/live/train/" + train_num + "/doj/" + cln_inq_date_date +"/apikey/1fb6d392/"
+    resp = requests.get(link)
+    jData = json.loads(resp.content)
+    print jData['position']
     
     return {
-        "speech": "Hello world!!!",
-        "displayText": "Hello world!!!",
+        "speech": jData['position'],
+        "displayText": jData['position'],
         # "data": data,
         # "contextOut": [],
-        "source": "apiai-weather-webhook-sample"
+        "source": "indian railway API"
     }
 
 
