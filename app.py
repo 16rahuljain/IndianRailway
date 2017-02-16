@@ -40,11 +40,12 @@ def processRequest(req):
     link = "http://api.railwayapi.com/live/train/" + train_num + "/doj/" + cln_inq_date_date +"/apikey/1fb6d392/"
     resp = requests.get(link)
     jData = json.loads(resp.content)
-    print jData['position']
+    speech = jData['position']
+    print speech
     
     return {
-        "speech": jData['position'],
-        "displayText": jData['position'],
+        "speech": speech,
+        "displayText": speech,
         # "data": data,
         # "contextOut": [],
         "source": "indian railway API"
