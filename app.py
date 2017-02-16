@@ -37,7 +37,7 @@ def processRequest(req):
     cln_inq_date = inq_date.replace('-','')
     train_num = parameters.get("train_num")
     
-    link = "http://api.railwayapi.com/live/train/" + train_num + "/doj/" + cln_inq_date_date +"/apikey/1fb6d392/"
+    link = "http://api.railwayapi.com/live/train/" + train_num + "/doj/" + cln_inq_date +"/apikey/1fb6d392/"
     result = urllib.request.urlopen(link).read()
     data = json.loads(result)
     speech = data.get('position')
