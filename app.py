@@ -13,8 +13,12 @@ app = Flask(__name__)
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
+    req = request.get_json(silent=True, force=True)
     
-    res = processRequest()
+    print("Request:")
+    print(json.dumps(req, indent=4))
+    
+    res = processRequest(req)
 
     res = json.dumps(res, indent=4)
     r = make_response(res)
@@ -22,7 +26,18 @@ def webhook():
     print(r)
     return r
 
-def processRequest():
+def processRequest(req):
+    
+    if req.get("result").get("action") != "TrainRunningStatus":
+        return {}
+    
+    result = req.get("result")
+    parameters = result.get("parameters")
+    inq_date = parameters.get("inq_date") 
+    train_num = parameters.get("train_num")
+    
+    
+    
     return {
         "speech": "Hello world!!!",
         "displayText": "Hello world!!!",
