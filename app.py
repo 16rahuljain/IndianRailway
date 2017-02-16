@@ -1,10 +1,33 @@
-#!/usr/bin/env python
+from __future__ import print_function
+from future import standard_library
+standard_library.install_aliases()
+import urllib.request, urllib.parse, urllib.error
+import json
 import os
+
 from flask import Flask
-app = Flask(__name__)
-@app.route('/')
-def index():
-  return 'Hello world'
+from flask import request
+from flask import make_response
+
+@app.route('/webhook', methods=['POST'])
+def webhook():
+    
+    res = processRequest()
+
+    res = json.dumps(res, indent=4)
+    # print(res)
+    r = make_response(res)
+    r.headers['Content-Type'] = 'application/json'
+    return r
+
+def processRequest():
+  return {
+        "speech": "Hello world!!!",
+        "displayText": "Hello world!!!",
+        # "data": data,
+        # "contextOut": [],
+        "source": "apiai-weather-webhook-sample"
+    }
 
 
 if __name__ == "__main__":
