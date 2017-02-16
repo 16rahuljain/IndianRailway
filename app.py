@@ -41,7 +41,7 @@ def processRequest(req):
     resp = requests.get(link)
     jData = json.loads(resp.content)
     speech = jData['position']
-    print speech
+    print(speech)
     
     return {
         "speech": speech,
