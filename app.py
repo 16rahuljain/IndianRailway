@@ -9,19 +9,21 @@ from flask import Flask
 from flask import request
 from flask import make_response
 
+app = Flask(__name__)
+
 @app.route('/webhook', methods=['POST'])
 def webhook():
     
     res = processRequest()
 
     res = json.dumps(res, indent=4)
-    # print(res)
+    print(res)
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
     return r
 
 def processRequest():
-  return {
+    return {
         "speech": "Hello world!!!",
         "displayText": "Hello world!!!",
         # "data": data,
@@ -31,7 +33,7 @@ def processRequest():
 
 
 if __name__ == "__main__":
-  port = int(os.getenv('PORT', 5000))
-  app.run(debug=False, port=port, host='0.0.0.0')
+    port = int(os.getenv('PORT', 5000))
+    app.run(debug=False, port=port, host='0.0.0.0')
 
 
