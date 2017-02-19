@@ -50,7 +50,7 @@ def processRequest(req):
     # Prepare and call API URL
     link = "http://api.railwayapi.com/live/train/" + train_num + "/doj/" + cln_inq_date +"/apikey/" +key + "/"
     result = urllib.request.urlopen(link).read()
-    data = json.loads(result
+    data = json.loads(result)
                       
     # Extract train position
     raw_speech = data.get('position')                                            
