@@ -56,7 +56,7 @@ def processRequest(req):
     raw_speech = data.get('position')                                            
     
     # Exception handling
-    if (raw_speech == "-"):
+    if raw_speech == "-":
         cln_speech = "Oops somthing went wrong, please try again later"
     else
         cln_speech = raw_speech
