@@ -58,7 +58,7 @@ def processRequest(req):
     # Exception handling
     if raw_speech == "-":
         cln_speech = "Oops somthing went wrong, please try again later"
-    else
+    else:
         cln_speech = raw_speech
     
     #Prepare response speech
