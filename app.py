@@ -42,7 +42,7 @@ def processRequest(req):
     link = "http://api.railwayapi.com/live/train/" + train_num + "/doj/" + cln_inq_date +"/apikey/" +key + "/"
     result = urllib.request.urlopen(link).read()
     data = json.loads(result)
-    speech = data.get('position')
+    speech = raw_train_num + "   " + cln_inq_date + data.get('position')
     
     return {
         "speech": speech,
