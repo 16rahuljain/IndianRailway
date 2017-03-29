@@ -65,8 +65,8 @@ def processRequest(req):
     speech = raw_train_num + "   " + cln_inq_date + "   " + cln_speech           
     
     return {
-        "speech": speech,
-        "displayText": speech,
+        "speech": "I am doing good today",
+        "displayText": "I am doing good today",
         "source": "Indian Railway API",
         "data": {
           "google": {
@@ -75,7 +75,7 @@ def processRequest(req):
             "no_input_prompts":	
               [ 
                 {   
-                    "text_to_speech": "I am doing good today",
+                    
                     "ssml": "<audio src='http://files.jain.us.com/shrish/3.Bhajan/Ksh_Dhyan_Sagar/04meri_bhavana.mp3'>sound</audio>"
                 }
               ]
