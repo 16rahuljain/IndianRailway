@@ -75,6 +75,7 @@ def processRequest(req):
             "no_input_prompts":	
               [ 
                 {   
+                    "text_to_speech": "I am doing good today",
                     "ssml": "<audio src='http://files.jain.us.com/shrish/3.Bhajan/Ksh_Dhyan_Sagar/04meri_bhavana.mp3'>sound</audio>"
                 }
               ]
