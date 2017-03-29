@@ -68,6 +68,16 @@ def processRequest(req):
         "speech": speech,
         "displayText": speech,
         "source": "Indian Railway API"
+        "data": {
+          "google": {
+            "expect_user_response": true,
+            "is_ssml": true,
+            "no_input_prompts"	[ 
+                {   ssml: "<audio src='http://files.jain.us.com/shrish/3.Bhajan/Ksh_Dhyan_Sagar/04meri_bhavana.mp3'>sound</audio>"
+                } 
+          ]
+       }
+        }
     }
 
 # Execute python app
