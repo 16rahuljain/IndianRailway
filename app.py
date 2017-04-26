@@ -62,7 +62,7 @@ def processRequest(req):
         cln_speech = raw_speech
     
     #Prepare response speech
-    speech = raw_train_num + "   " + cln_inq_date + "   " + cln_speech           
+    speech = cln_speech           
     
     return {
         "speech": speech,
